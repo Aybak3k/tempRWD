@@ -1,0 +1,98 @@
+// NOTE: Done in a hurry
+
+
+// imports
+@import "index";
+
+
+// ...
+main {
+    // *{outline: 1px solid cyan;}
+    width: 100%;
+    // cz fixed elements don't have reserved space
+        height: 100%;
+        margin-top: 8vh;
+    padding: 15px;
+    @include flex-position;
+    color: var(--darkest);
+
+    #payment-container {
+        $input-margin-top: 40px;
+
+        width: 400px;
+        height: auto;
+        background: var(--color2);
+        border-radius: 10px;
+        @include box-shadow;
+        padding: 47px 27px 60px;
+        // grid-method
+            display: grid;
+            place-items: center;
+            grid-template-rows: repeat(3, minmax(min-content, max-content));
+
+        #total-cost {
+            width: 100%;
+            // grid-method
+                display: grid;
+                align-items: center;
+                justify-content: center;
+                grid-template-columns: 8fr 2fr;
+            padding: 10px 20px;
+
+            h2 {
+                display: inline-block;
+            }
+
+            p {
+                text-align: center;
+                padding: 20px;
+                border-radius: 10px;
+                background: var(--color2-darker-2);
+            }
+        }
+
+        form#payment-form {
+            width: 100%;
+            // flex-method
+                height: 100%;  // essential for the flex to work
+                @include flex-position($y:center, $x:flex-start, $dir:column);
+    
+            ::placeholder {
+                color: var(--darkest);
+                font-weight: normal;
+            }
+    
+            input {
+                width: 80%;
+                padding: 7px 15px;
+                border: none;
+                outline: none;
+                border-bottom: 1px solid var(--color1);
+                background: transparent;
+                transition: all $transition-duration ease-in-out;
+                color: var(--darkest);
+                font-weight: bold;
+                margin-top: $input-margin-top;
+                
+                &:focus {
+                    border-bottom: 1px solid var(--darkest);
+                }
+            }
+        }
+    
+        a#make-payment {
+            margin-top: ($input-margin-top + 10px);
+            background: var(--color1);
+            color: var(--color2);
+            padding: 10px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+
+            &:hover {background: var(--color1-darker);}
+        }
+    }
+}
+
+// @media screen and (max-width:430px) {
+
+// }

@@ -1,0 +1,49 @@
+//- includes manager
+include ../includes/spc-manager.pug
++loadBasicIncludes()
+
+//- TEMP << cz local vars are lost in 2 includes..
+include ../includes/spc-data.pug
+
+//- Mixins
+mixin customHead()
+    link(rel="stylesheet", href=pagesStylesPath+"signup.css")
+
+
+//- DOCTYPE
+doctype html
+html(lang="en")
+
+    //- <head>
+    +head(brandName+" Sign Up", customHead)
+
+    //- <body>
+    body 
+        header
+            +navBar(logo, signupLinks)
+            main
+                #form-container
+                    span.icon
+                        +userIcon()
+                    //- form(action="../../index.html", method="post")
+                    form(action="#", method="post", id="signup-form")
+                        input(type="text", name="uname", placeholder="Full Name" required)
+                        input(type="telephone", name="utelephone", placeholder="Telephone" required)
+                        input(type="email", name="uemail", placeholder="Email" required)
+                        input(type="password", id="passwd" name="upassword", placeholder="Create Password" required)
+                        input(type="password", id="confirm-passwd" name="uconfirmpassword", placeholder="Confirm Password" required)
+                        fieldset#radio-wrapper
+                            legend I'm a
+                            .group
+                                label(for="customer") Customer
+                                input(type="radio", name="role" value="Customer" id="customer" required)
+                            .group
+                                label(for="worker") Worker
+                                input(type="radio", name="role" value="Worker" id="worker" required)
+                        input(type="submit", value="Sign Up")
+
+        +chatBox()
+
+        //- Essential Scripts
+        +loadScripts()
+        script(src=pagesScriptsPath+"form-validation.js")

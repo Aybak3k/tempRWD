@@ -1,0 +1,46 @@
+//- includes manager
+include ../includes/spc-manager.pug
++loadBasicIncludes()
+
+//- TEMP << cz local vars are lost in 2 includes..
+include ../includes/spc-data.pug
+
+//- Mixins
+mixin customHead()
+    link(rel="stylesheet", href=pagesStylesPath+"customer.css")
+
+
+//- DOCTYPE
+doctype html
+html(lang="en")
+
+    //- <head>
+    +head(brandName+" Customer", customHead)
+
+    //- <body>
+    body 
+        header
+            +navBar(logo, customerLinks)
+            aside
+                #user-info
+                    figure
+                        img(src=pagesPhImg, alt="user image", srcset="")
+                        figcaption Ahmad Sayed
+                    .info-box
+                        span.icon
+                            +emailIcon()
+                        p ahmadsayed@gmail.com
+                    .info-box
+                        span.icon
+                            +phoneIcon()
+                        p +201000000000
+                    button Edit Profile
+                button#My-Account #[span(id="arrow") ▾] My Account
+            main
+                #dashboard
+
+        +chatBox()
+
+        //- Essential Scripts
+        +loadScripts()
+        script(src=pagesScriptsPath+"aside.js")

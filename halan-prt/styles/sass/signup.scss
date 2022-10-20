@@ -1,0 +1,37 @@
+@import "form-container";
+
+main {
+    @include flex-position;
+    width: 100%;
+    min-height: 92vh;
+    margin-top: 8vh;
+    padding: 90px;
+
+    #form-container {
+        @include form-container-styles(2);
+
+        fieldset#radio-wrapper {
+            border: none;
+            padding-top: 12px;
+            @include flex-position($x:space-around);
+            width: 80%;  // same as input
+            margin-top: 40px;  // same as input
+
+            .group {
+                width: auto;
+                @include flex-position($x:space-evenly);
+
+                label {
+                    margin-right: 6px;
+                }
+
+                * {
+                    cursor: pointer;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@import "form-container-mq";

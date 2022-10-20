@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@styles/*": ["styles/css/*"]
+        }
+    }
+}
+// js import
+// "@lib/context"

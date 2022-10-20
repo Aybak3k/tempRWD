@@ -1,0 +1,12 @@
+mixin loadBasicIncludes()
+        include head
+        include navbar
+        include icons
+        include chat-box
+
+mixin loadScripts(scriptsPath="../../scripts/")
+        script(src=scriptsPath+"jquery.min.js")
+        script(src=scriptsPath+"navbar.js")
+        script(src=scriptsPath+"debug-tools.js")
+        script(src=scriptsPath+"hide-url.js")
+        script(src=scriptsPath+"chat-box.js")

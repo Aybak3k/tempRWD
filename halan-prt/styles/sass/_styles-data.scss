@@ -1,0 +1,33 @@
+// SASS Vars
+$debug-border-color: rgb(26, 212, 218);
+$mq-max-width: 799px;
+$transition-duration: 300ms;
+
+// CSS Vars (to be changed with JS)
+:root {
+    // personal temp
+        // --color1: #fd6d03;
+        --color1: #f00;
+        // --color1-darker: #e2670e;
+        --color1-darker: #d00;
+        // --color1-darker-2: #c75b0e;
+        --color1-darker-2: rgb(179, 1, 1);
+    --color2: #fff;
+    --color2-darker: #fbfbfb;
+    --color2-darker-2: #eeeded;
+    --color2-darkerest: #ddd;
+    --darkest: #333;
+    --color3: #4C5270;
+    --color4: #36eee0;
+    --color5: #bcece0;
+    --shadow: rgba(0, 0, 0, 0.15);
+}
+
+// Personal Temp
+// :root {
+    // --color1: #fff;
+    // --color1-darker: rgb(214, 211, 238);
+    // --color2: rgb(15, 10, 82);
+    // --darkest: rgb(192, 192, 196);
+    // --shadow: rgba(188, 192, 204, 0.15);
+// }

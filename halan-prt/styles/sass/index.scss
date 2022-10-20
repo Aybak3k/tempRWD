@@ -1,0 +1,17 @@
+// imports
+@import "styles-data";  // general info - on top
+@import "general-styles";
+@import "fonts";
+@import "navbar";
+@import "chat-box";
+
+
+// Temp
+.debug body * {
+    outline: 1px solid $debug-border-color;
+}
+
+// for chatbox
+body {
+    overflow: hidden;
+}

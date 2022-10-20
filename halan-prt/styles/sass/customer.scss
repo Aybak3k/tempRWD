@@ -1,0 +1,167 @@
+// imports
+@import "index";
+
+
+// Vars
+$margin-bottom: 30px;
+
+
+// Animations
+@keyframes Fading {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px)
+    }
+}
+
+
+// ...
+header {
+    position: relative;
+}
+
+main {
+    // *{outline: 1px solid cyan;}
+    width: 100%;
+    // cz fixed elements don't have reserved space
+        height: 100%;
+        margin-top: 8vh;
+    padding: 15px;
+    // display: grid;
+    // grid-template-columns: 2fr 8fr;
+    // * {overflow: auto;}
+}
+    
+
+aside {
+    $side-bar-width:250px;
+    $btn-show-width: 50px;
+    $aside-width: $side-bar-width + $btn-show-width;
+
+    position: absolute;
+    height: 100%;
+    width: $aside-width;
+    @include flex-position;
+    transform: translateX(-$side-bar-width);
+
+    &,* {
+        transition: all $transition-duration ease-in-out;
+    }
+
+    &.shown {
+        transform: translateX(0);
+    }
+
+    #user-info{
+        // for p width
+            // min-width: 250px;
+            // max-width: 300px;
+            width: $side-bar-width;
+        height:100%;
+        @include box-shadow;
+            // z-index: 999;
+        padding: 20px;
+
+        figure {
+            $figure-height: 250px;
+            width: 100%;
+            height: $figure-height;
+            @include flex-position($dir:column,);  // @flex-method
+            margin-bottom: $margin-bottom;
+
+            img {
+                // circle: same dimensions value && border-radius
+                    width: $figure-height / 1.5;
+                    height: $figure-height / 1.5;
+                    object-fit: cover;
+                border-radius: 50%;
+                margin-bottom: 20px;  // @flex-method: instead of gap
+            }
+
+            figcaption {
+                font-weight: bold;
+                letter-spacing: .4px;
+                font-size: 1.1em;
+                // margin-left: $margin-bottom / 2;  // @flex-method: instead of gap
+            }
+        }
+
+        .info-box {
+            width: 100%;
+            min-height: 30px;
+            @include flex-position($x:flex-start);
+            margin-bottom: $margin-bottom;  // @flex-method: instead of gap
+
+            p {overflow: hidden;word-wrap: break-word;width: 90%;}
+
+            &:last-of-type {
+                margin-bottom: $margin-bottom + 10;
+            }
+            
+            span.icon {
+                background: var(--color1);
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                @include flex-position;
+                margin-right: $margin-bottom / 3;
+
+                path {fill: var(--color2);}
+            }
+        }
+
+        button {
+            all: unset;
+            background: var(--color1);
+            color: var(--color2);
+            padding: 10px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+
+            &:hover {background: var(--color1-darker);}
+        }
+    }
+    
+    button#My-Account {
+        all: unset;
+        background: var(--color1);
+        color: var(--color2);
+        padding: 10px 20px 10px 5px;
+        border-radius: 10px 0 0 10px;
+        transition: all $transition-duration ease-in-out;
+        cursor: pointer;
+        // rotate
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            span {
+                display: block;
+                height: 15px;
+                margin: auto 0;
+                margin-right: 2px;
+                transform: rotate(90deg);
+                transition: all $transition-duration ease-in-out;
+
+                &.open {
+                    transform: rotate(270deg);
+                }
+            }
+
+        &:hover {
+            background: var(--color1-darker);
+            color: var(--color2-darker);
+        }
+
+        &:active {
+            background: var(--color1-darker-2);
+            color: var(--color2-darker-2);
+        }
+    }
+}
+
+#dashboard {
+    display: none;
+}

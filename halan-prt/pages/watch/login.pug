@@ -1,0 +1,44 @@
+//- includes manager
+include ../includes/spc-manager.pug
++loadBasicIncludes()
+
+//- TEMP << cz local vars are lost in 2 includes..
+include ../includes/spc-data.pug
+
+//- Mixins
+mixin customHead()
+    link(rel="stylesheet", href=pagesStylesPath+"login.css")
+
+
+//- DOCTYPE
+doctype html
+html(lang="en")
+
+    //- <head>
+    +head(brandName+" Login", customHead)
+
+    //- <body>
+    body 
+        header
+            +navBar(logo, loginLinks)
+            main
+                #form-container
+                    span.icon
+                        +userIcon()
+                    form(action="../../index.html", method="post")
+                        input(type="email", name="uemail", placeholder="Email.." required)
+                        input(type="password", name="upassword", placeholder="Password.." required)
+                        //- input(type="password", name="upassword", placeholder="Password.." required)
+                        //- input(type="password", name="upassword", placeholder="Password.." required)
+                        //- input(type="password", name="upassword", placeholder="Password.." required)
+                        //- input(type="password", name="upassword", placeholder="Password.." required)
+                        //- input(type="password", name="upassword", placeholder="Password.." required)
+                        //- input(type="password", name="upassword", placeholder="Password.." required)
+                        //- input(type="password", name="upassword", placeholder="Password.." required)
+                        input(type="submit", value="Login")
+                    a(data-href="#" id="forgot-passwd") Forgot Password?
+
+        +chatBox()
+        
+        //- Essential Scripts
+        +loadScripts()

@@ -1,0 +1,108 @@
+$chat-box-height:315px;
+$chat-opener-height:45px;
+$actual-chat-height:220px;
+$chat-form-height:35px;
+
+#chat-box {
+    height: $chat-box-height;
+    width: 286px;
+    position: absolute;
+    bottom: 0;
+    right: 12vw;
+    @include flex-position($dir:column, $x:flex-start);
+    @include box-shadow;
+    transform: translateY($chat-box-height - $chat-opener-height);
+    transition: all $transition-duration ease-in-out;
+
+    &.shown {
+        transform: translateY(0);
+    }
+
+    button#chat-opener {
+        all:unset;
+        width: 100%;
+        height: $chat-opener-height;
+        background: var(--color1);
+        color: var(--color2);
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.1em;
+        @include box-shadow;
+            z-index: 1;
+        cursor: pointer;
+
+        &:hover {
+            background: var(--color1-darker);
+            color: var(--color2-darker);
+        }
+
+        &:active {
+            background: var(--color1-darker-2);
+            color: var(--color2-darker-2);
+        }
+    }
+
+    #actual-chat {
+        overflow-y: auto;
+        height: $actual-chat-height;
+        width: 100%;
+        padding: 10px;
+
+        .block-div {
+            display: grid;
+            justify-items: start;
+
+            P {
+                display: inline-block;
+                padding: 10px;
+                border-radius: 15px;
+                margin-bottom: 10px;
+                box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.36);
+    
+                &.support {
+                    background: var(--color1);
+                    color: var(--color2);
+                }
+    
+                &.customer {
+                    background: var(--color2);
+                    color: var(--darkest);
+                    justify-self: end;
+                }
+
+                &#start {transform: translate(-220px); transition: all ($transition-duration * 2) ease-in-out;}
+                &#start.heading {transform: translate(0);}
+            }
+        }
+    }
+
+    form#chat-form {
+        height: $chat-form-height;
+        width: 100%;
+        @include flex-position;
+        border-top: 1px solid var(--color2-darkerest);
+        padding-top: 5px;
+
+        input {
+            width: 85%;
+            height: 100%;
+            border: none;
+            outline: none;
+            padding: 7px 15px;
+            color: var(--darkest);
+        }
+
+        button {
+            all: unset;
+            width: 15%;
+            height: 100%;
+            text-align: center;
+            background: var(--color2);
+            cursor: pointer;
+            
+            svg path {fill: var(--color1);}
+            &:hover {svg path {fill: var(--color1-darker);}}
+            &:active {svg path {fill: var(--color1-darker-2);}}
+        }
+    }
+}

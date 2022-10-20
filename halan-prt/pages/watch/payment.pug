@@ -1,0 +1,39 @@
+//- includes manager
+include ../includes/spc-manager.pug
++loadBasicIncludes()
+
+//- TEMP << cz local vars are lost in 2 includes..
+include ../includes/spc-data.pug
+
+//- Mixins
+mixin customHead()
+    link(rel="stylesheet", href=pagesStylesPath+"payment.css")
+
+
+//- DOCTYPE
+doctype html
+html(lang="en")
+
+    //- <head>
+    +head(brandName+" Payment", customHead)
+
+    //- <body>
+    body 
+        header
+            +navBar(logo, customerLinks)  // same for paymentLinks too
+            main
+                #payment-container 
+                    #total-cost
+                        h2 Total Cost
+                        p £375
+                    form(action="../../index.html", method="post", id="payment-form")
+                            input(type="text", name="card-num", placeholder="Card Number", required)
+                            input(type="date", name="upassword" required)
+                            input(type="password", name="cvv", placeholder="CVV", required)
+                    a(data-href="#" id="make-payment") Make Payment
+
+        +chatBox()
+
+        
+        //- Essential Scripts
+        +loadScripts()

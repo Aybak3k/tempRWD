@@ -1,0 +1,15 @@
+@import "form-container";
+
+main {
+    @include flex-position;
+    width: 100%;
+    min-height: 92vh;
+    margin-top: 8vh;
+    padding: 45px;
+
+    #form-container {
+        @include form-container-styles(3)
+    }
+}
+
+@import "form-container-mq";

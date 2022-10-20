@@ -1,0 +1,18 @@
+mixin chatBox()
+    #chat-box
+        button(id="chat-opener") Contact Us
+        #actual-chat
+            //- - for (let i=1; i<=60; i++)
+            //-     p Rad!
+            .block-div
+                p.support#start How can we help you today?
+            //- .block-div
+            //-     p.customer I wanna speak to your manager!
+            //- .block-div
+            //-     p.support T_T
+            //- .block-div
+            //-     p.customer JK XD
+        form(action="#" method="post" id="chat-form")
+            input(type="text", name="message", placeholder="Type Your Message..", autocomplete="off")
+            button(type="submit")
+                +send()

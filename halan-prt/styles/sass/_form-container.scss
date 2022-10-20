@@ -1,0 +1,84 @@
+// to use mixins && vars
+@import "index";
+
+
+// Vars
+$input-margin-top: 40px;  // insteada using `!important`
+
+
+
+@mixin form-container-styles($rows-num) {
+    width:320px;
+    min-height:120px;
+    padding: 47px 27px 60px;
+    @include box-shadow;
+    // outline: 1px solid var(--color1);
+    border-radius: 10px;
+    background: var(--color2);
+    // grid-method
+        display: grid;
+        place-items: center;
+        grid-template-rows: repeat($rows-num, minmax(min-content, max-content));
+
+    span.icon {
+        background: var(--color1);
+        border: 10px solid var(--color1);
+        border-radius: 50%;
+        @include flex-position;  // flex-method
+        width: 70px;
+        height: 70px;
+        path {
+            fill: var(--color2);
+        }
+    }
+
+    form {
+        width: 100%;
+        // flex-method
+            height: 100%;  // essential for the flex to work
+            @include flex-position($y:center, $x:flex-start, $dir:column);
+
+        ::placeholder {
+            color: var(--darkest);
+            font-weight: normal;
+        }
+
+        input {
+            width: 80%;
+            padding: 7px 15px;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid var(--color1);
+            background: transparent;
+            transition: all $transition-duration ease-in-out;
+            color: var(--darkest);
+            font-weight: bold;
+            margin-top: $input-margin-top;
+            
+            &:focus {
+                border-bottom: 1px solid var(--darkest);
+            }
+
+            &[type=submit] {
+                all: unset;
+                cursor: pointer;
+                background: var(--color1);
+                color: var(--color2);
+                padding: 4% 7%;
+                border-radius: 6px;
+                transition: all $transition-duration ease-in-out;
+                font-size: 1.1em;
+                font-weight: bold;
+                flex-basis: auto;
+                margin-top: ($input-margin-top + 10);
+
+                &:hover,
+                &:focus {
+                    background: var(--color1-darker);
+                }
+            }
+        }
+    }
+
+    a {text-decoration: underline;margin-top: ($input-margin-top + 10px);}  // // @form-container !existent
+}
