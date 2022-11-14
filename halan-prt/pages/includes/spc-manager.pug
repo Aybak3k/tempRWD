@@ -4,9 +4,52 @@ mixin loadBasicIncludes()
         include icons
         include chat-box
 
-mixin loadScripts(scriptsPath="../../scripts/")
+mixin loadScripts(scriptsPath=pagesScriptsPath)
         script(src=scriptsPath+"jquery.min.js")
         script(src=scriptsPath+"navbar.js")
         script(src=scriptsPath+"debug-tools.js")
         script(src=scriptsPath+"hide-url.js")
         script(src=scriptsPath+"chat-box.js")
+
+
+
+//- Site Identity
+-
+    const brandName = '7alan'
+    const logo = '7alan'
+    const heroTitle = "Clean Service At Your Fingertips"
+//- Page Nav Links
+-
+    const indexLinks = [
+        [
+            {'Profiles':'#!'},
+            [
+                {'Customer':'./pages/html/customer.html'},
+                {'Worker':'#!'}
+            ]
+        ],
+        {'Payment':'./pages/html/payment.html'}
+    ]
+    const loginLinks = [
+        {'Home':'../../index.html'},
+        {'Sign Up':'./signup.html'}
+    ]
+    const signupLinks = [
+        {'Home':'../../index.html'},
+        {'Login':'./login.html'}
+    ]
+    const customerLinks = [
+        {'Home':'../../index.html'},
+        {'Logout':'../../index.html'},
+        {'Notifications':'../../index.html'},
+        {'Favourites':'../../index.html'}
+    ]
+
+//- Silly
+-
+    const indexStylesPath = "./styles/css/"
+    const indexScriptsPath = "./scripts/"
+    const indexPhImg = "./assets/images/ph.png"
+    const pagesStylesPath = "../."+indexStylesPath
+    const pagesScriptsPath = "../../scripts/"
+    const pagesPhImg = "../../assets/images/ph.png"

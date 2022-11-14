@@ -2,19 +2,20 @@
 include ../includes/spc-manager.pug
 +loadBasicIncludes()
 
-//- TEMP << cz local vars are lost in 2 includes..
-include ../includes/spc-data.pug
 
 //- Mixins
 mixin customHead()
     link(rel="stylesheet", href=indexStylesPath+"hero-sec.css")
 
+
+
 //- DOCTYPE
 doctype html
 html(lang="en")
-
     //- <head>
     +head(brandName+" home", indexPhImg, customHead)
+
+
 
     //- <body>
     body 
@@ -27,7 +28,11 @@ html(lang="en")
                         a(data-href="./pages/html/signup.html") Sign Up
                         a(data-href="./pages/html/login.html") Login
         
+
+
         +chatBox()
+
+
 
         //- Essential Scripts
         +loadScripts(indexScriptsPath)
