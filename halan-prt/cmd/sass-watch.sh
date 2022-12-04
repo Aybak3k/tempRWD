@@ -1,1 +1,1 @@
-sass --watch ../styles/sass/:../styles/css/ --style compressed
+sass --no-stop-on-error --watch ../styles/sass/:../styles/css/ --style compressed

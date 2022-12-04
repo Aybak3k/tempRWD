@@ -36,8 +36,8 @@ $gaming-bgs: (
     flex-direction: $dir;
 }
 
-@mixin box-shadow {
-    box-shadow: 0 3px 12px var(--shadow);
+@mixin box-shadow($h:0, $v:3px, $blur:12px, $spread:0, $clr:var(--shadow-color)) {
+    box-shadow: $h $v $blur $spread $clr;
 }
 
 //----- (3) Fixed General styles -------------------------

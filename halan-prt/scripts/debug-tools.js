@@ -2,7 +2,7 @@
 const lg = val => console.log(val)
 
 // debug css
-const toggleDebugBorder = _ => {
+const toggleCSSDebug = _ => {
     document.querySelector("html").classList.toggle("debug");
 }
 // toggleDebug()

@@ -7,8 +7,11 @@
 
 
 // Temp
-.debug body * {
-    outline: 1px solid $debug-border-color;
+.debug body {
+    overflow: visible;
+    * {
+        outline: 1px solid $debug-border-color;
+    }
 }
 
 // for chatbox
@@ -18,16 +21,24 @@ body {
 
 
 
-// index.scss
-// _general-styles.scss
-// _navbar.scss
 
-// _chat-box.scss
-// _form-container-mq.scss
-// _form-container.scss
 
-// customer.scss
-// hero-sec.scss
-// login.scss
+
+
 // payment.scss
+
+// _form-container.scss
+// _form-container-mq.scss
+// login.scss
 // signup.scss
+
+// _navbar.scss
+// _chat-box.scss
+
+
+
+// DONE
+    // index.scss
+    // _general-styles.scss
+    // hero-sec.scss
+    // customer.scss
